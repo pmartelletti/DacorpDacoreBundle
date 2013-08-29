@@ -1,0 +1,5 @@
+NameError: variable @color-apps is undefined in /home/darulez/work/projects/justmoov/justmoov_reborn/vendor/dacorp/core-bundle/Dacorp/CoreBundle/Resources/public/css/.file-input.less on line 153, column 23:
+152 #navbar .navlink-apps.active {
+153     background-color: @color-apps;
+154 }
+

@@ -1,0 +1,51 @@
+parameters:
+    dacorp.menu_builder.class:  Dacorp\CoreBundle\Menu\MenuBuilder
+    dacorp.knp_menu_item.class:  Knp\Menu\MenuItem
+    
+services:
+    dacorp_core.menu_builder:
+        class: %dacorp.menu_builder.class%
+        arguments: ["@knp_menu.factory", "@service_container"]
+        
+    dacorp_core.navbar:
+        class: %mopa_bootstrap.navbar.generic%
+        arguments:
+            # first argument: a named array of menues:
+            - { rightmenu: '@dacorp_core.menu.navbar_right=', leftmenu: '@dacorp_core.menu.navbar_left=', langmenu: '@dacorp_core.menu.navbar_lang='}
+            # second argument: a named array of FormType Classes  
+            - { searchform: Dacorp\CoreBundle\Form\Type\SearchFormType }
+            # third argument: a named array of options
+            - { title: "Popolipopo", titleRoute: "dacorp_livehome", fixedTop: true, isFluid: false, template:DacorpCoreBundle:Navbar:navbar.html.twig }
+        tags:
+            # The alias is used to retrieve the navbar in templates
+            - { name: mopa_bootstrap.navbar, alias: DacoreFrontendNavbar }
+
+    dacorp_core.menu.navbar_right:
+        # the service definition requires setting the class
+        class: %dacorp.knp_menu_item.class%
+        factory_service: dacorp_core.menu_builder
+        factory_method: createRightNavbarMenu
+        arguments: ["@request"]
+        scope: request # needed as we have the request as a dependency here
+        tags:
+            - { name: knp_menu.menu, alias: rightNavbarMenu } # The alias is what is used to retrieve the menu
+
+    dacorp_core.menu.navbar_left:
+        # the service definition requires setting the class
+        class: %dacorp.knp_menu_item.class%
+        factory_service: dacorp_core.menu_builder
+        factory_method: createLeftNavbarMenu
+        arguments: ["@request"]
+        scope: request # needed as we have the request as a dependency here
+        tags:
+            - { name: knp_menu.menu, alias: leftNavbarMenu } # The alias is what is used to retrieve the menu
+
+    dacorp_core.menu.navbar_lang:
+        # the service definition requires setting the class
+        class: %dacorp.knp_menu_item.class%
+        factory_service: dacorp_core.menu_builder
+        factory_method: createLangNavbarMenu
+        arguments: ["@request"]
+        scope: request # needed as we have the request as a dependency here
+        tags:
+            - { name: knp_menu.menu, alias: langNavbarMenu } # The alias is what is used to retrieve the menu

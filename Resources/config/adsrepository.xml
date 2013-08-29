@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<ads>
+    <ad_468x15>
+        <![CDATA[<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5127130778716389";
+/* popo 468x15 */
+google_ad_slot = "1452956525";
+google_ad_width = 468;
+google_ad_height = 15;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>]]>
+    </ad_468x15>
+    <ad_300x250>
+        <![CDATA[<script type="text/javascript"><!--
+    google_ad_client = "ca-pub-5127130778716389";
+    /* popo 300x250 */
+    google_ad_slot = "6301958521";
+    google_ad_width = 300;
+    google_ad_height = 250;
+    //-->
+</script>
+<script type="text/javascript"
+        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>]]>
+    </ad_300x250>
+    <ad_160x600>
+        <![CDATA[<script type="text/javascript"><!--
+google_ad_client = "ca-pub-5127130778716389";
+/* popo 160x600 */
+google_ad_slot = "7499490128";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>]]>
+    </ad_160x600>
+    <ad_728x90>
+        <![CDATA[<script type="text/javascript"><!--
+    google_ad_client = "ca-pub-5127130778716389";
+    /* popo 728x90 */
+    google_ad_slot = "1871758926";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+</script>
+<script type="text/javascript"
+        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>]]>
+    </ad_728x90>
+    <ad_468x15_back>
+        <![CDATA[<a href="http://www.bestoflike.com" target="_new">Nice status sharing for social network</a>]]>
+    </ad_468x15_back>
+    <ad_250x250_back>
+        <![CDATA[<a href="http://www.bestoflike.com" target="_new">Nice status sharing for social network</a>]]>
+    </ad_250x250_back>
+    <ad_160x600_back>
+        <![CDATA[<a href="http://www.bestoflike.com" target="_new">Nice status sharing for social network</a>]]>
+    </ad_160x600_back>
+    <ad_728x90_back>
+        <![CDATA[<a href="http://www.bestoflike.com" target="_new">Nice status sharing for social network</a>]]>
+    </ad_728x90_back>
+    <ad_728x90>
+        <![CDATA[<a href="http://www.bestoflike.com" target="_new">Nice status sharing for social network</a>]]>
+    </ad_728x90>
+</ads>
