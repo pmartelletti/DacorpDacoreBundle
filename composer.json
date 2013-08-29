@@ -1,5 +1,5 @@
 {
-    "name": "dacorp/core-bundle",
+    "name": "dacorp/dacore-bundle",
     "type": "symfony-bundle",
     "description": "Dacorp Core Bundle",
     "keywords": ["symfony", "bundle"],
