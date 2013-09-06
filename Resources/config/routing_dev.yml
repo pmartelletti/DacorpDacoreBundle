@@ -1,3 +1,3 @@
-test:
-    path:   /test
-    defaults:  { _controller: DacorpCoreBundle:Testing:test }
+readme:
+    path: /docs/readme
+    defaults: { _controller: DacorpCoreBundle:Docs:readme }

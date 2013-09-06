@@ -35,6 +35,7 @@
         "jms/serializer-bundle": "dev-master",
         "gedmo/doctrine-extensions": "dev-master",
         "jms/i18n-routing-bundle": "dev-master",
+        "knplabs/knp-markdown-bundle": "1.2.*@dev",
         "stfalcon/tinymce-bundle": "dev-master"
     },
     "require-dev": {
