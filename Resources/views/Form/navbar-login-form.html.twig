@@ -2,12 +2,12 @@
     <div class="form-group col-md-4">
         <input type="hidden" name="_csrf_token" value="{% render(controller('DacorpCoreBundle:User:getCsrfToken')) %}"/>
         <label class="sr-only" for="da-input-mail">{{ 'navbar.login.enter-login'|trans() }}</label>
-        <input type="text" class="form-control input-sm" id="da-input-username" name="_username"
+        <input type="text" class="form-control input" id="da-input-username" name="_username"
                placeholder="{{ 'navbar.login.enter-username'|trans() }}">
     </div>
     <div class="form-group col-md-4">
         <label class="sr-only" for="da-input-password">{{ 'navbar.login.password'|trans() }}</label>
-        <input type="password" class="form-control input-sm" id="da-input-password" name="_password"
+        <input type="password" class="form-control input" id="da-input-password" name="_password"
                placeholder="{{ 'navbar.login.password'|trans() }}">
     </div>
     {#<div class="col-md-2">#}
@@ -17,5 +17,9 @@
     {#</label>#}
     {#</div>#}
     {#</div>#}
-    <button type="submit col-md-2" class="btn btn-default navbar-btn"><span class="glyphicon glyphicon-log-in"></span> {{ 'navbar.login.sign-in'|trans() }}</button>
+    <div class="form-group col-md-4">
+    <button type="submit" class="btn btn-default btn-sm navbar-btn">{% spaceless %}<span class="glyphicon glyphicon-log-in"></span> {{ 'navbar.login.sign-in'|trans() }}{% endspaceless %}</button>
+
+    </div>
+
 </form>
