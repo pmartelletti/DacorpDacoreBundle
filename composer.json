@@ -20,11 +20,11 @@
     ],
     "require": {
         "doctrine/doctrine-fixtures-bundle": "dev-master",
-        "genemu/form-bundle": "2.1.*@dev",
+        "genemu/form-bundle": "2.2.*@dev",
         "knplabs/knp-paginator-bundle": "2.3.*@dev",
         "knplabs/knp-menu-bundle": "~1.1",
         "punkave/symfony2-file-uploader-bundle": "dev-master",
-        "mopa/bootstrap-bundle": "dev-wip-bootstrap-3-integration",
+        "mopa/bootstrap-bundle": "dev-master",
         "twbs/bootstrap": "dev-master",
         "craue/formflow-bundle": "dev-master",
         "problematic/acl-manager-bundle": "dev-master",
@@ -36,6 +36,7 @@
         "gedmo/doctrine-extensions": "dev-master",
         "jms/i18n-routing-bundle": "dev-master",
         "knplabs/knp-markdown-bundle": "1.2.*@dev",
+        "mremi/contact-bundle": "dev-master",
         "stfalcon/tinymce-bundle": "dev-master"
     },
     "require-dev": {
