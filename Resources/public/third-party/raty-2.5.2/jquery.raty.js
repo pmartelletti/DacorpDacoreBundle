@@ -202,7 +202,7 @@
     }, _createCancel: function() {
       var that   = $(this),
           icon   = this.opt.path + this.opt.cancelOff,
-          cancel = $('<img />', { src: icon, alt: 'x', title: this.opt.cancelHint, 'class': 'raty-cancel' });
+          cancel = $('<images />', { src: icon, alt: 'x', title: this.opt.cancelHint, 'class': 'raty-cancel' });
 
       if (this.opt.cancelPlace == 'left') {
         that.prepend('&#160;').prepend(cancel);
@@ -222,14 +222,14 @@
 
         icon = this.opt.path + this.opt[icon];
 
-        $('<img />', { src : icon, alt: i, title: title }).appendTo(this);
+        $('<images />', { src : icon, alt: i, title: title }).appendTo(this);
 
         if (this.opt.space) {
           that.append((i < this.opt.number) ? '&#160;' : '');
         }
       }
 
-      return that.children('img');
+      return that.children('images');
     }, _error: function(message) {
       $(this).html(message);
 
@@ -391,7 +391,7 @@
 
         if (that.data('readonly') !== readonly) {
           if (readonly) {
-            that.off('.raty').children('img').off('.raty');
+            that.off('.raty').children('images').off('.raty');
 
             methods._lock.call(this);
           } else {

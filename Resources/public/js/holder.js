@@ -198,7 +198,7 @@ var fluid_images = [];
 
 var settings = {
 	domain: "holder.js",
-	images: "img",
+	images: "images",
 	elements: ".holderjs",
 	themes: {
 		"gray": {

@@ -41,35 +41,35 @@
                 <link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen"/>
                 {% endstylesheets %}
             {% endif %}
+
             {% block stylesheets_main %}
 
-                {% stylesheets filter='?yui_css,cssrewrite' output='css/compiled/desktop-full.css'
+                {% stylesheets filter='?yui_css,cssrewrite' output='css/compiled/dacore-standard.css'
                 'http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/flick/jquery-ui.css'
                 '//cdn.jsdelivr.net/select2/3.3/select2.css'
-                '@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle.less' %}
+                '@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle.less'
+                %}
                 <link rel="stylesheet" href="{{ asset_url }}" type="text/css" media="screen"/>
 
                 {% endstylesheets %}
 
-                {% stylesheets filter='?yui_css,cssrewrite,less' output='css/compiled/dacorp-styles.css'
-                '@DacorpCoreBundle/Resources/public/css/dacorp_common.less' %}
-                <link rel="stylesheet" href="{{ asset_url }}"/>
-
-                {% endstylesheets %}
+                {#Default Font for dacore projects#}
+                <style type="text/css">
+                    @import url("http://fonts.googleapis.com/css?family=Patrick+Hand+SC");
+                </style>
                 {# Override this block to add your own files! #}
 
             {% endblock stylesheets_main %}
 
             {% block stylesheets %}
                 {% stylesheets filter='?yui_css,cssrewrite,less' output='css/compiled/dacore.css'
-                '@DacorpCoreBundle/Resources/public/css/dacore.less' %}
+                '@DacorpCoreBundle/Resources/public/css/dacore.less'
+                %}
                 <link rel="stylesheet" href="{{ asset_url }}"/>
                 {% endstylesheets %}
 
-                <style type="text/css">
-                    @import url("http://fonts.googleapis.com/css?family=Patrick+Hand+SC");
-                </style>
-            {% endblock %}
+
+            {% endblock stylesheets %}
 
 
         {% endblock head_style %}
@@ -264,23 +264,28 @@
         {% endblock footer %}
     </footer>
 {% endblock container %}
-{% block foot_script %}
+
+{% block foot_script_standard %}
     {# To only use a subset or add more js overwrite and copy paste this block
-    To speed up page loads save a copy of jQuery in your project and override this block to include the correct path
-    Otherwise the regeneration is done on every load in dev more with use_controller: true
-     #}
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.3/underscore-min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/zeroclipboard/1.1.7/ZeroClipboard.min.js"></script>
+To speed up page loads save a copy of jQuery in your project and override this block to include the correct path
+Otherwise the regeneration is done on every load in dev more with use_controller: true
+ #}
+    {#Check those 3 library if needed...#}
+    {#<script src="//cdnjs.cloudflare.com/ajax/libs/select2/3.3.0/select2.min.js"></script>#}
+    {#<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>#}
+    {#<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>#}
 
-
-    {% javascripts filter='?yui_js' output='compiled/fullapplication.js'
-    'http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js'
+    {% javascripts filter='?yui_js' output='compiled/dacorpstandard.js'
+    '//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js'
+    '//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js'
+    '//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js'
+    'https://raw.github.com/silviomoreto/bootstrap-select/master/bootstrap-select.min.js'
+    '//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.2.0/js/bootstrap-datepicker.min.js'
+    '//cdnjs.cloudflare.com/ajax/libs/holder/2.0/holder.min.js'
+    '//cdnjs.cloudflare.com/ajax/libs/moment.js/2.1.0/moment.min.js'
+    '//cdnjs.cloudflare.com/ajax/libs/zeroclipboard/1.1.7/ZeroClipboard.min.js'
     '@MopaBootstrapBundle/Resources/bootstrap/js/transition.js'
+    '@MopaBootstrapBundle/Resources/bootstrap/js/affix.js'
     '@MopaBootstrapBundle/Resources/bootstrap/js/alert.js'
     '@MopaBootstrapBundle/Resources/bootstrap/js/modal.js'
     '@MopaBootstrapBundle/Resources/bootstrap/js/dropdown.js'
@@ -293,12 +298,15 @@
     '@MopaBootstrapBundle/Resources/bootstrap/js/carousel.js'
     '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-collection.js'
     '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-subnav.js'
+    '@PunkAveFileUploaderBundle/Resources/public/js/jquery.fileupload.js'
+    '@PunkAveFileUploaderBundle/Resources/public/js/jquery.iframe-transport.js'
     '@DacorpCoreBundle/Resources/public/js/FileUploader.js'
-    '@PunkAveFileUploaderBundle/Resources/public/js/jquery.fileupload.js' %}
+    %}
     <script type="text/javascript" src="{{ asset_url }}"></script>
     {% endjavascripts %}
-    {{ tinymce_init() }}
-    {% include "DacorpCoreBundle:Common:file-upload-control.html.twig" %}
+{% endblock foot_script_standard %}
+
+{% block foot_script %}
 {% endblock foot_script %}
 {% endblock body %}
 

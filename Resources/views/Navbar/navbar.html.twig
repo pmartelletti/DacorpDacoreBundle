@@ -1,4 +1,53 @@
 {% block navbar %}
+    {#<nav class="navbar navbar-default affix{{ (navbar.hasOption('fixedTop') and  navbar.getOption('fixedTop')) ? 'navbar-fixed-top' : '' }}"#}
+    <nav data-spy="affix" data-offset-top="60"
+         class="navbar navbar-default {{ (navbar.hasOption('fixedTop') and  navbar.getOption('fixedTop')) ? '' : '' }}"
+         role="navigation">
+
+        <div class="container">
+            {#<div class="row navbar-inner ">#}
+            {#<div class="col-md-8 col-md-offset-2 col-sd-12">#}
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                {% if navbar.hasOption('title') %}<a class="navbar-brand col-md-1" id="jm-brand-logo"
+                                                     href="{{ path(navbar.getOption('titleRoute')) }}"
+                                                     alt="{{ navbar.getOption('title') }}"><img src="/bundles/dacorpcore/images/logo.png"></a>
+                {% endif %}
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <div class="col-md-6">
+                    {{ navbar.hasMenu('leftmenu') ? knp_menu_render(navbar.getMenu('leftmenu'), {'currentClass': 'active', 'ancestorClass': 'active', 'allow_safe_labels': 'true'}) : '' }}
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        {% if is_expr_granted('isAuthenticated()') %}
+                            {{ navbar.hasMenu('rightmenu') ? knp_menu_render(navbar.getMenu('rightmenu'), {'currentClass': 'active', 'ancestorClass': 'active', 'allow_safe_labels': 'true'}) : '' }}
+                        {% else %}
+                            {% include "DacorpCoreBundle:Form:navbar-login-form.html.twig" %}
+                        {% endif %}
+                    </div>
+
+                </div>
+                <div class="col-md-1">
+                    {{ navbar.hasMenu('langmenu') ? knp_menu_render(navbar.getMenu('langmenu'), {'currentClass': 'active', 'ancestorClass': 'active', 'allow_safe_labels': 'true'}) : '' }}
+                </div>
+            </div>
+            {#</div>#}
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+{% endblock navbar %}
+{% block navbar2 %}
     <div class="navbar {{ (navbar.hasOption('fixedTop') and  navbar.getOption('fixedTop')) ? 'navbar-fixed-top' : '' }}">
         <div class="navbar-inner">
             <div class="container{{ (navbar.hasOption('isFluid') and navbar.getOption('isFluid')) ? '-fluid' : '' }}">
