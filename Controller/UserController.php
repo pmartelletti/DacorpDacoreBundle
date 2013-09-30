@@ -34,7 +34,7 @@ class UserController extends Controller
         if ($user instanceof DacorpUser)
         $chosenAvatarFilename = ($user->getCurrentAvatar()) ? $em->getRepository('DacorpCoreBundle:DacorpMedia')->find($user->getCurrentAvatar())->getFilename() : null;
 
-        return $this->render('DacorpCoreBundle:User:show-own-profile.html.twig', array(
+        return $this->render('DacorpCoreBundle:User:showOwnProfile.html.twig', array(
                 'user' => $user,
                 'avatar' => $chosenAvatarFilename
             ));
@@ -50,7 +50,7 @@ class UserController extends Controller
         if ($user instanceof DacorpUser)
         $chosenAvatarFilename = ($user->getCurrentAvatar()) ? $em->getRepository('DacorpCoreBundle:DacorpMedia')->find($user->getCurrentAvatar())->getFilename() : null;
 
-        return $this->render('DacorpCoreBundle:User:show-user-profile.html.twig', array(
+        return $this->render('DacorpCoreBundle:User:showUserProfile.html.twig', array(
                 'user' => $user,
                 'avatar' => $chosenAvatarFilename
             ));

@@ -29,7 +29,7 @@ class ExceptionController extends BaseExceptionController
 
     public function showAction(Request $request, FlattenException $exception, DebugLoggerInterface $logger = null, $_format = 'html')
     {
-        $request->setRequestFormat($format);
+        $request->setRequestFormat($_format);
 
         $currentContent = $this->getAndCleanOutputBuffering($request->headers->get('X-Php-Ob-Level', -1));
 

@@ -10,7 +10,7 @@ $(function() {
         'uploadUrl': '{{ path('dacorp_picture_upload', { editId: "editIdPlaceholder" }) }}',
         'viewUrl': '/uploads/tmp/attachments/'+editId,
         'el': '.file-uploader',
-        'existingFiles': $.parseJSON($('[sm-role=existing-files]').val()),
+        'existingFiles': ($('[sm-role=existing-files]').val()!="")?$.parseJSON($('[sm-role=existing-files]').val()):"",
         'delaySubmitWhileUploading': '.edit-form',
         {% if (selectOne is defined and selectOne is not null)%}
             {% autoescape 'js' %}
@@ -24,7 +24,14 @@ $(function() {
     data.uploadUrl = data.uploadUrl.replace('editIdPlaceholder', editId)
     new PunkAveFileUploader(data);
 
-
+    $('.file-uploader').fileupload({
+        dataType: 'json',
+        done: function (e, data) {
+            $.each(data.result.files, function (index, file) {
+                $('<p/>').text(file.name).appendTo(document.body);
+            });
+        }
+    });
     $('.file-uploader').fileupload(
         'option',
         {

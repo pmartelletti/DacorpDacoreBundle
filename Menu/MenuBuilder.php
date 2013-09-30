@@ -27,7 +27,7 @@ class MenuBuilder extends AbstractNavbarMenuBuilder {
 
     public function createRightNavbarMenu() {
         $menu = $this->createNavbarMenuItem();
-        $menu->setChildrenAttribute('class', 'nav pull-right settings-dropdown');
+        $menu->setChildrenAttribute('class', 'nav navbar-nav');
 
         //Add a dropdown for settings
         $dropdownSett = $this->createDropdownMenuItem(
@@ -55,7 +55,7 @@ class MenuBuilder extends AbstractNavbarMenuBuilder {
 
     public function createLeftNavbarMenu() {
         $menu = $this->createNavbarMenuItem();
-        $menu->setChildrenAttribute('class', 'nav pull-left left-menu');
+        $menu->setChildrenAttribute('class', 'nav navbar-nav');
         $menu->addChild($this->translator->trans('navbar.mainlink.latest'), array(
             'route' => 'dacorp_picture_list',
             'routeParameters' => array('listFilter' => 'latest','order'=>'DESC')));
@@ -68,7 +68,7 @@ class MenuBuilder extends AbstractNavbarMenuBuilder {
 
     public function createLangNavbarMenu() {
         $menu = $this->createNavbarMenuItem();
-        $menu->setChildrenAttribute('class', 'nav pull-right');
+        $menu->setChildrenAttribute('class', 'nav navbar-nav navbar-right');
 
         //Add a dropdown to switch languages
         $currLang = $this->container->get('session')->get('_locale', $this->container->getParameter('locale'));
