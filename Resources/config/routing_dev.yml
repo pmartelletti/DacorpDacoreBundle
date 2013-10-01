@@ -1,3 +1,7 @@
-readme:
+project_readme:
     path: /docs/readme
-    defaults: { _controller: DacorpCoreBundle:Docs:readme }
+    defaults: { _controller: DacorpCoreBundle:Docs:readMe }
+
+dacorp_readme:
+    path: /dacorp/docs/readme
+    defaults: { _controller: DacorpCoreBundle:Docs:readMeDacorp }
