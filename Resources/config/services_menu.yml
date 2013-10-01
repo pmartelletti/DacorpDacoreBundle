@@ -3,7 +3,7 @@ parameters:
     dacorp.knp_menu_item.class:  Knp\Menu\MenuItem
     mopa_bootstrap.navbar.generic:
         Mopa\Bundle\BootstrapBundle\Navbar\GenericNavbar
-            
+
 services:
     dacorp_core.menu_builder:
         class: %dacorp.menu_builder.class%
