@@ -27,6 +27,5 @@ class DacorpCoreExtension extends Extension
         $loader->load('services.yml');
         $loader->load('services_forms.yml');
         $loader->load('services_manager.yml');
-        $loader->load('services_menu.yml');
     }
 }
