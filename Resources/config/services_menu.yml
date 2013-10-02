@@ -8,7 +8,7 @@ services:
         arguments: ["@knp_menu.factory", "@service_container"]
         
     dacorp_core.navbar:
-        class: %mopa_bootstrap.navbar.generic%
+        class: %mopa_bootstrap.navbar.enabled%
         arguments:
             # first argument: a named array of menues:
             - { rightmenu: '@dacorp_core.menu.navbar_right=', leftmenu: '@dacorp_core.menu.navbar_left=', langmenu: '@dacorp_core.menu.navbar_lang='}
