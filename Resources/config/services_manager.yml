@@ -5,6 +5,7 @@ parameters:
     dacorp.acl_manager.class: Dacorp\CoreBundle\Services\AclManager
     dacorp.acl_service.class: Dacorp\CoreBundle\Services\DacorpAclService
     dacorp.file_manager.class: Dacorp\CoreBundle\Services\FileManager
+    dacorp.dacorp_media.class: Dacorp\CoreBundle\Entity\DacorpMedia
 
 services:
     dacorp.user.manager:
@@ -18,7 +19,7 @@ services:
 
     dacorp.manager.dacorp_media:
         class: %dacorp.dacorp_media_manager.class%
-        arguments: ["@doctrine.orm.entity_manager", "@service_container","@dacorp_core.file_manager"]
+        arguments: ["@doctrine.orm.entity_manager", "@service_container","@dacorp_core.file_manager",%dacorp_dacore.dacorp_media_class%]
         
     dacorp.manager.acl:
         class: %dacorp.acl_manager.class%

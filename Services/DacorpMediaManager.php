@@ -27,31 +27,41 @@ class DacorpMediaManager
      * @var User
      */
     protected $user;
+
     /**
      * FileManager
      * @var FileManager
      */
     protected $fileManager;
+
     /**
      * @var Logger
      */
     protected $logger;
+
     /**
      * editId
      */
     protected $editId;
+
+    /**
+     * dacorpMediaClass
+     */
+    protected $dacorpMediaClass;
     /**
      * existingFiles
      */
     protected $existingFiles;
 
-    public function __construct(EntityManager $em, Container $container, FileManager $fileManager)
+    public function __construct(EntityManager $em, Container $container, FileManager $fileManager, $dacorpMediaClass)
     {
         $this->em = $em;
         $this->container = $container;
         $this->fileManager = $fileManager;
-        $this->user =$this->container->get('security.context')->getToken()->getUser();
+        $this->user = $this->container->get('security.context')->getToken()->getUser();
         $this->logger = $this->container->get('logger');
+        $this->dacorpMediaClass = $dacorpMediaClass;
+
     }
 
     public function setupDacorpMediaManager($userId, $mediaId)
@@ -97,21 +107,19 @@ class DacorpMediaManager
      * @param type $editId
      * @param array $newAttachmentList
      */
-    public function manageSimpleDacorpMedia($parentContent, $editId, $newEditId, $filename, $parentType = 'picture')
+    public function manageSimpleMedia($parentContent, $editId, $newEditId, $filename, $parentType = 'picture')
     {
         $this->logger->info('Managing DacorpMedia');
         if ($filename != null) {
-            /* @var $media DacorpMedia */
             $this->em->flush();
 
             $this->logger->info('add media:' . $filename);
 
-            $dacorpMedia = new DacorpMedia();
-            if( $this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY') ){
+            $dacorpMedia = new $this->dacorpMediaClass();
+            if ($this->container->get('security.context')->isGranted('IS_AUTHENTICATED_FULLY')) {
                 $dacorpMedia->setUser($this->user);
             }
-            //$scolibriMedia->setContent($parentContent);
-            $mediaKey=$this->fileManager->getMediaKey($newEditId);
+            $mediaKey = $this->fileManager->getMediaKey($newEditId);
             //store information about the media
             $dacorpMedia->setOriginalFilename($filename);
             $dacorpMedia->setFilename($filename);
@@ -134,12 +142,12 @@ class DacorpMediaManager
         } else {
             exit;
         }
-        $this->fileManager->saveFiles($editId,$newEditId);
+        $this->fileManager->saveFiles($editId, $newEditId);
     }
 
 
-
-    private function daEncode($data) {
+    protected function daEncode($data)
+    {
         return substr(base64_encode(pack("l", (16807 * $data) % 2147483647)), 0, 6);
     }
 

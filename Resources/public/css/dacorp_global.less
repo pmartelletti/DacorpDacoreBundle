@@ -1,0 +1,200 @@
+@color-background: #666;
+@lightfont: #fefefe;
+/* End variables */
+
+
+.ui-helper-clearfix {
+  clear: both;
+}
+
+body {
+  background-color: #ddd;
+}
+
+.tab-content {
+  overflow: visible;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: bold;
+}
+
+.clearfix {
+  clear: both;
+}
+
+.navbar-inner {
+  padding-top: 3px;
+}
+
+.navbar .brand {
+  height: 15px;
+  margin-top: 6px;
+  margin-left: 0;
+  width: 30px;
+}
+
+.top-spacer {
+  margin-top:10px;
+}
+.navbar .nav > li > a{
+  margin: 5px;
+}
+.navbar .nav > li > a:focus, .navbar .nav > li > a:hover,
+.navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
+  background-color: #222;
+  .rounded_corners;
+  color: #fff;
+}
+
+.flash-notice {
+  border-radius: 5px;
+  padding: 5px;
+  background: gainsboro;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.homepage-tips {
+  color: #fff;
+  font-family: 'Lobster Two', cursive;
+  font-size: 25px;
+  font-style: italic;
+}
+
+.homepage-tips .task-tip {
+  margin-left: -160px;
+  /* yeah, enjoy minus sh*t*/
+  padding-right: 110px;
+  padding-top: 80px;
+  background: url('images/arrow-white-right.png') no-repeat right top;
+}
+
+.homepage-tips .group-tip {
+
+  padding-left: 100px;
+  padding-top: 80px;
+  margin-left: 16px;
+  background: url('images/arrow-white-left.png') no-repeat left top;
+}
+
+#head-bar {
+  background-color: black;
+  opacity: 0.9;
+  padding: 10px 0;
+}
+
+#inpage-action-content {
+  display: none;
+}
+
+.content-main h1.title {
+  font-weight: bold;
+  border-bottom: 1px solid #333;
+  font-size: 122%;
+  padding-bottom: 0.3em;
+}
+
+
+.content-main textarea {
+  height: 200px;
+}
+
+.user-profile {
+  float: left;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.user-profile .user-avatar {
+  float: right;
+  width: 80px;
+  height: 80px;
+  .shadow;
+}
+
+.not-a-list ul {
+  list-style-type: none;
+}
+
+footer a {
+  color: #000;
+
+}
+
+/*
+ * Content item styles
+*/
+.content-item {
+  position: relative;
+}
+
+.content-item-user-avatar {
+  margin-right: 12px;
+}
+
+.content-item .content-item-contextual-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-left: 10px;
+}
+
+// form hidden and shown by js
+.picture-comment-form,
+.picture-tag-form {
+  display: none;
+}
+
+.da-comment-input {
+  height: 100px;
+}
+
+/* Picture comment general */
+.picture-comment {
+  padding: 6px 25px;
+  margin: 10px 0px;
+  background-color: #whitesmoke;
+  border: 2px solid;
+  .rounded_corners(8px);
+  .shadow;
+  .transition;
+}
+
+/* Picture comment general */
+.picture-comment:hover {
+  background-color: #ddd;
+}
+.picture-data-container{
+  background-color: #ddd;
+  .rounded_corners(4px);
+}
+.picture-nbvoting {
+}
+.picture-nbrating {
+}
+.da-user-avatar{
+  background-color: white;
+  padding: 4px;
+  .rounded_corners(4px);
+}
+.avatar-name{
+  text-align: center;
+}
+.dua-stat{
+  text-align: center;
+}
+
+.dua-reputation{
+  font-size: x-large;
+  font-weight: bold;
+  margin-bottom: 16px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.count-voting{
+  font-size: x-large;
+  font-weight: bold;
+}
+/* CSS to style the file input field as button and adjust the Bootstrap progress bars */

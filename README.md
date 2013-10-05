@@ -13,3 +13,7 @@ Some of the feature included :
 
 Using the ImageUploader Service:
 
+include the default uploader
+    {% include "DacorpCoreBundle:Common:file-upload-control.html.twig" %}
+
+

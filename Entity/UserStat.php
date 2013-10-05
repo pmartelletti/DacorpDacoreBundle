@@ -80,75 +80,6 @@ class UserStat
     }
 
     /**
-     * Set firstname
-     *
-     * @param string $firstname
-     * @return User
-     */
-    public function setFirstname($firstname)
-    {
-        $this->firstname = $firstname;
-    
-        return $this;
-    }
-
-    /**
-     * Get firstname
-     *
-     * @return string 
-     */
-    public function getFirstname()
-    {
-        return $this->firstname;
-    }
-
-    /**
-     * Set birthdate
-     *
-     * @param \DateTime $birthdate
-     * @return User
-     */
-    public function setBirthdate($birthdate)
-    {
-        $this->birthdate = $birthdate;
-    
-        return $this;
-    }
-
-    /**
-     * Get birthdate
-     *
-     * @return \DateTime 
-     */
-    public function getBirthdate()
-    {
-        return $this->birthdate;
-    }
-
-    /**
-     * Set lastname
-     *
-     * @param string $lastname
-     * @return User
-     */
-    public function setLastname($lastname)
-    {
-        $this->lastname = $lastname;
-    
-        return $this;
-    }
-
-    /**
-     * Get lastname
-     *
-     * @return string 
-     */
-    public function getLastname()
-    {
-        return $this->lastname;
-    }
-
-    /**
      * Set nbVoteUp
      *
      * @param integer $nbVoteUp
@@ -231,16 +162,6 @@ class UserStat
     }
 
     /**
-     * Get nbComment
-     *
-     * @return integer 
-     */
-    public function getNbComment()
-    {
-        return $this->nbComment;
-    }
-
-    /**
      * Set nbPictures
      *
      * @param integer $nbPictures
@@ -263,74 +184,6 @@ class UserStat
         return $this->nbPictures;
     }
 
-    /**
-     * Set address
-     *
-     * @param \Dacorp\CoreBundle\Entity\Address $address
-     * @return User
-     */
-    public function setAddress(\Dacorp\CoreBundle\Entity\Address $address = null)
-    {
-        $this->address = $address;
-    
-        return $this;
-    }
-
-    /**
-     * Get address
-     *
-     * @return \Dacorp\CoreBundle\Entity\Address 
-     */
-    public function getAddress()
-    {
-        return $this->address;
-    }
-
-    /**
-     * Set userRole
-     *
-     * @param \Dacorp\CoreBundle\Entity\UserRole $userRole
-     * @return User
-     */
-    public function setUserRole(\Dacorp\CoreBundle\Entity\UserRole $userRole = null)
-    {
-        $this->userRole = $userRole;
-    
-        return $this;
-    }
-
-    /**
-     * Get userRole
-     *
-     * @return \Dacorp\CoreBundle\Entity\UserRole 
-     */
-    public function getUserRole()
-    {
-        return $this->userRole;
-    }
-
-    /**
-     * Set currentAvatar
-     *
-     * @param \Dacorp\CoreBundle\Entity\DacorpMedia $currentAvatar
-     * @return User
-     */
-    public function setCurrentAvatar(\Dacorp\CoreBundle\Entity\DacorpMedia $currentAvatar = null)
-    {
-        $this->currentAvatar = $currentAvatar;
-    
-        return $this;
-    }
-
-    /**
-     * Get currentAvatar
-     *
-     * @return \Dacorp\CoreBundle\Entity\DacorpMedia 
-     */
-    public function getCurrentAvatar()
-    {
-        return $this->currentAvatar;
-    }
 
     /**
      * Set nbComments
