@@ -48,7 +48,6 @@ class FileManager
 
     public function saveFiles($editId, $newEditId)
     {
-
         $this->fileUploader->syncFiles(
             array('from_folder' => 'tmp/attachments/' . $editId,
                 'to_folder' => 'attachments/' . $this->getMediaKey($newEditId),

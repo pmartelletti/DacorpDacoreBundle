@@ -1,5 +1,5 @@
-<div class="da-media" class="thumbnail">
-    <img src="{{ dacorpmedia.url | generateMediaUrl(dacorpmedia.filename,'large') }}"/>
+<div class="da-media" class="img-responsive">
+    <img src="{{ dacorpmedia.url | generateMediaUrl(dacorpmedia.filename,pictureSize|default('medium')) }}"/>
     {#<a rel="tooltip" title="Download Original" class="download thumbnail-action btn" target="download" href="{{ dacorpmedia.url | generateMediaUrl(dacorpmedia.filename,'originals') }}">#}
         {#<i class="icon-download"></i>#}
     {#</a>#}
