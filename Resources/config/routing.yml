@@ -13,9 +13,6 @@ change_lang:
 dacorp_core_thirdparty:
     resource: "@DacorpCoreBundle/Resources/config/routing_thirdparty.yml"
 
-dacorp_core_user:
-    resource: "@DacorpCoreBundle/Resources/config/routing_user.yml"
-
 dacorp_core_ajax:
     resource: "@DacorpCoreBundle/Resources/config/routing_ajax.yml"
     prefix: /ajax
