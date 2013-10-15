@@ -1,100 +1,47 @@
-{% block navbar %}
-    {#<nav class="navbar navbar-default affix{{ (navbar.hasOption('fixedTop') and  navbar.getOption('fixedTop')) ? 'navbar-fixed-top' : '' }}"#}
-    <nav class="navbar navbar-default {{ (navbar.hasOption('fixedTop') and  navbar.getOption('fixedTop')) ? '' : '' }}"
-         role="navigation">
-
+<nav data-spy="affix" data-offset-top="60">
+    <div class="navbar{{ inverse|default(false) ? ' navbar-inverse' : ' navbar-default' }}{{ fixedTop|default(false) ? ' navbar-fixed-top' : '' }}{{ staticTop|default(false) ? ' navbar-static-top' : '' }}">
         <div class="container">
-            {#<div class="row navbar-inner ">#}
-            {#<div class="col-md-8 col-md-offset-2 col-sd-12">#}
-
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse"
-                        data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                {% if navbar.hasOption('title') %}<a class="navbar-brand col-md-1" id="jm-brand-logo"
-                                                     href="{{ path(navbar.getOption('titleRoute')) }}"
-                                                     alt="{{ navbar.getOption('title') }}"><img src="/bundles/dacorpcore/images/logo.png"></a>
-                {% endif %}
-            </div>
-
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <div class="col-md-6">
-                    {{ navbar.hasMenu('leftmenu') ? knp_menu_render(navbar.getMenu('leftmenu'), {'currentClass': 'active', 'ancestorClass': 'active', 'allow_safe_labels': 'true'}) : '' }}
+            {% block header %}
+                <div class="navbar-header">
+                    {% block toggle %}
+                        <button type="button" class="navbar-toggle" data-toggle="collapse"
+                                data-target=".navbar-responsive-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    {% endblock %}
+                    {% block brand %}
+                        <a class="navbar-brand col-md-1"
+                           href="{{ path(navbar.getOption('titleRoute')) }}"
+                           alt="{{ navbar.getOption('title') }}"><img src="/bundles/dacorpcore/images/logo.png"></a>
+                    {% endblock %}
                 </div>
-                <div class="col-md-4">
-                    <div class="row">
-                        {% if is_expr_granted('isAuthenticated()') %}
-                            {{ navbar.hasMenu('rightmenu') ? knp_menu_render(navbar.getMenu('rightmenu'), {'currentClass': 'active', 'ancestorClass': 'active', 'allow_safe_labels': 'true'}) : '' }}
-                        {% else %}
-                            {% include "DacorpCoreBundle:Form:navbar-login-form.html.twig" %}
-                        {% endif %}
-                    </div>
+            {% endblock %}
+            {% block menu_container %}
+                <div class="collapse navbar-collapse navbar-responsive-collapse">
+                    {% block menu %}
 
-                </div>
-                <div class="col-md-1">
-                    {{ navbar.hasMenu('langmenu') ? knp_menu_render(navbar.getMenu('langmenu'), {'currentClass': 'active', 'ancestorClass': 'active', 'allow_safe_labels': 'true'}) : '' }}
-                </div>
-            </div>
-            {#</div>#}
-        </div>
-        <!-- /.navbar-collapse -->
-    </nav>
-{% endblock navbar %}
-{% block navbar2 %}
-    <div class="navbar {{ (navbar.hasOption('fixedTop') and  navbar.getOption('fixedTop')) ? 'navbar-fixed-top' : '' }}">
-        <div class="navbar-inner">
-            <div class="container{{ (navbar.hasOption('isFluid') and navbar.getOption('isFluid')) ? '-fluid' : '' }}">
-                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </a>
-                {% if navbar.hasOption('title') %}<a class="brand da-title" href="{{ path(navbar.getOption('titleRoute')) }}" alt="{{ navbar.getOption('title') }}">{{ navbar.getOption('title') }}</a>{% endif %}
-                {% if is_expr_granted('isAuthenticated()') %}
-                    {{ navbar.hasMenu('leftmenu') ? knp_menu_render(navbar.getMenu('leftmenu'), {'currentClass': 'active', 'ancestorClass': 'active', 'allow_safe_labels': 'true'}) : '' }}
-                    {#{% if navbar.hasFormView('searchform') %}#}
-                    {#{%- set form_view = navbar.getFormView('searchform') -%}#}
-                    {#{%- set form_type = navbar.getFormType('searchform') -%}#}
-                    {#{%- set form_attrs = form_view.vars.attr -%}#}
-                    {#{% form_theme form_view _self %}#}
-                    {#<form class="navbar-search pull-{{ form_attrs.pull|default('right') }}" method="{{ form_attrs.method|default('post') }}" action="{{ path(navbar.getFormRoute('searchform')) }}">#}
-                    {#{{ form_widget(form_view) }}#}
-                    {#</form>#}
-                    {#{% endif %}#}
-                    {#{% include ":Common:langswitcher.html.twig" %}#}
-                    <div class="nav-collapse">
-                        {{ navbar.hasMenu('rightmenu') ? knp_menu_render(navbar.getMenu('rightmenu'), {'currentClass': 'active', 'ancestorClass': 'active', 'allow_safe_labels': 'true'}) : '' }}
-                    </div>
-                {% else %}
-                    {#$csrfToken = $this->container->get('form.csrf_provider')->generateCsrfToken('authenticate');#}
-                    <div class="valigntop">
-                        <form id="loginForm" action="{{ path('fos_user_security_check') }}" class="navbar-form pull-right" method="post">
-                            <input type="hidden" name="_csrf_token" value="{% render(controller('DacorpCoreBundle:User:getCsrfToken')) %}" />
-                            <input type="text" id="username" name="_username" class="span2" placeholder="Username...">
-                            <input type="password" id="password" name="_password" class="span2" placeholder="Password...">
-                            <input type="submit" name="login" value="Login" class="btn"/>
-                        </form>
-                    </div>
-                {% endif %}
-                <div class="nav-collapse">
-                    {{ navbar.hasMenu('langmenu') ? knp_menu_render(navbar.getMenu('langmenu'), {'currentClass': 'active', 'ancestorClass': 'active', 'allow_safe_labels': 'true'}) : '' }}
-                </div>
+                        <div class="col-md-6">
+                            {{ mopa_bootstrap_menu('DacorpCoreBundle:MenuBuilder:mainMenu') }}
+                        </div>
+                        <div class="col-md-4">
+                            <div class="row">
+                                {% if is_expr_granted('isAuthenticated()') %}
+                                    {{ mopa_bootstrap_menu('DacorpCoreBundle:MenuBuilder:userMenu') }}
+                                {% else %}
+                                    {% include "DacorpCoreBundle:Form:navbar-login-form.html.twig" %}
+                                {% endif %}
+                            </div>
 
-            </div>
+                        </div>
+                        <div class="col-md-1">
+                            {{ mopa_bootstrap_menu('DacorpCoreBundle:MenuBuilder:rightMenu') }}
+                        </div>
+                    {% endblock %}
+                </div>
+            {% endblock %}
         </div>
     </div>
-{% endblock %}
-
-{% block form_widget %}
-    {{ block('field_rows') }}
-{% endblock %}
-
-{% block field_row %}
-    {{ form_widget(form) }}
-{% endblock field_row %}
+</nav>

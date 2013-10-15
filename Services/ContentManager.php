@@ -42,7 +42,6 @@ class ContentManager
     }
 
     /**
-     * @return Comment
      */
     public function create()
     {
