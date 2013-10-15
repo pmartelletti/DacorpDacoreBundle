@@ -3,7 +3,7 @@ Dacorp Dacore Bundle
 
 Collection of services, helper, and standard view for standard services you want to use in any kind of website.
 
-It's a **Work in Progress**, use it carefully :)
+It's a **Work in Progress** mainly used for other project. You can browse the repository, but I would not recommend you to use it unless you know what you want ;)
 
 Some of the feature included :
 
