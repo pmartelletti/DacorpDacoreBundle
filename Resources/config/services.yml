@@ -1,7 +1,6 @@
 parameters:
     dacorp.media_extension.class: Dacorp\CoreBundle\Twig\DacorpMediaExtension
     dacorp.locale_listener.class: Dacorp\CoreBundle\Listener\LocaleListener
-    dacorp.end_of_request_listener.class: Dacorp\CoreBundle\Listener\EndOfRequestListener
     dacorp.login_listener.class: Dacorp\CoreBundle\Listener\LoginListener
     dacorp.default_registration_form_type.class:  Dacorp\CoreBundle\Form\Type\DefaultRegistrationFormType
     twig.exception_controller: Dacorp\CoreBundle\Controller\ExceptionController::showAction
@@ -14,12 +13,6 @@ services:
         arguments: ["@security.context", "@doctrine.orm.entity_manager", "@session", "@service_container"]
         tags:
             - { name: kernel.event_listener, event: security.interactive_login }
-
-    end_of_request_listener:
-        class: %dacorp.end_of_request_listener.class%
-        arguments: ["@security.context", "@doctrine.orm.entity_manager", "@session", "@service_container"]
-        tags:
-            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse}
 
     # Overload registrationform from fos
     dacorp_user.registration.form.type:
